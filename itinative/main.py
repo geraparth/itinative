@@ -1,9 +1,5 @@
-import pandas as pd
-from pulp import *
-import datetime
-from helper_functions import haversine, PlacesDataRetriever
-from dayPlanner import bestpriceColletingRoute
-from collections import defaultdict
+from itinative.helper_functions import PlacesDataRetriever
+from itinative.dayPlanner import bestpriceColletingRoute
 
 
 class ItineraryPlanner(object):

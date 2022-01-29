@@ -197,7 +197,7 @@ class PlacesDataRetriever(object):
     def get_places_api_data(self):
         print("Looking for places ...")
         if self.extract_from_file:
-            places_df = pd.read_csv("./places.csv")
+            places_df = pd.read_csv("places.csv")
             places_df["opening_time"].fillna(self.default_opening_time, inplace=True)
             places_df["closing_time"].fillna(self.default_closing_time, inplace=True)
 
@@ -264,7 +264,7 @@ class PlacesDataRetriever(object):
     def retrieve_hotels(self):
         print("Searching for top hotels ...")
         if self.extract_from_file:
-            hotel_recommendations = pd.read_csv("./hotel_data.csv")[
+            hotel_recommendations = pd.read_csv("hotel_data.csv")[
                 ["place_id", "name", "rating", "user_ratings_total", "address"]]
             hotel_recommendations["prominence_score"] = hotel_recommendations["rating"] * hotel_recommendations[
                 "user_ratings_total"]
@@ -313,7 +313,7 @@ class PlacesDataRetriever(object):
     def retrieve_distance_matrix(self):
         print("Computing distances and transit times ...")
         if self.extract_from_file:
-            distances_df = pd.read_csv("./distances.csv")
+            distances_df = pd.read_csv("distances.csv")
             self.distance_matrix = distances_df.set_index(["place_id_x", "place_id_y"])["road_distance"].to_dict()
         else:
             # Haversine distances and conversion to minutes >
