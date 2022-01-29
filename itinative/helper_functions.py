@@ -119,17 +119,6 @@ class PlacesDataRetriever(object):
                 thisLocation.lng = result['geometry']['location'].get('lng')
                 self.place_details.append(thisLocation)
 
-                # place_ids[20 * j + i] = result.get('place_id')
-                # names[20 * j + i] = result.get('name')
-                # ratings[20 * j + i] = result.get('rating')
-                # user_ratings_total[20 * j + i] = result.get('user_ratings_total')
-                # lat[20 * j + i] = result['geometry']['location'].get('lat')
-                # long[20 * j + i] = result['geometry']['location'].get('lng')
-                # place_opening[20 * j + i] = result.get('PlaceOpeningHours')
-                # if (result.get('opening_hours') == None):
-                #     opening_hours[20 * j + i] = None
-                # else:
-                #     opening_hours[20 * j + i] = result.get('opening_hours').get('open_now')
         return
 
     def retrieve_open_close_times(self):

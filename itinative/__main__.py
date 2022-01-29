@@ -11,7 +11,7 @@ class Agent(object):
         self.default_closing_time = 1140  # 7 PM * 60
         self.waiting_time = 90  # Minutes
         self.maxVisits_in_a_day = 7
-        self.extract_from_file = False
+        self.extract_from_file = False  # debugging tool
         self.api_key = api_key
 
     def generate(self):
