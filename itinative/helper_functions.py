@@ -62,7 +62,7 @@ class placeDetails(object):
 
 class PlacesDataRetriever(object):
 
-    def __init__(self, location, coverage, default_open, default_close, extract_from_file=False):
+    def __init__(self, api_key, location, coverage, default_open, default_close, extract_from_file=False):
         self.location = location
         self.coverage = coverage  # in Meters
         self.pin_lat = 41.8781
@@ -70,7 +70,7 @@ class PlacesDataRetriever(object):
         self.default_opening_time = default_open
         self.default_closing_time = default_close
         self.extract_from_file = extract_from_file
-        self.client = googlemaps.Client(key="AIzaSyAhBURl7DjEgDonyF3RZboLvrgkYAzpjOE")
+        self.client = googlemaps.Client(key=api_key)
         self.place_details = []
         self.places_index_for_id = {}
         self.distance_matrix = {}
@@ -167,13 +167,6 @@ class PlacesDataRetriever(object):
         return
 
     def MakeDataset(self):
-        # final_data = pd.DataFrame(list(zip(list(place_ids.values()), list(names.values()), list(ratings.values())
-        #                                    , list(user_ratings_total.values()), list(lat.values()), list(long.values())
-        #                                    , list(opening_hours.values()), list(open_times.values()),
-        #                                    list(close_times.values())))
-        #                           ,
-        #                           columns=['place_id', 'name', 'rating', 'user_ratings_total',
-        #                           'lat', 'lng', 'open_now', 'open time', 'close time'])
         records = []
         for item in self.place_details:
             records.append({
@@ -197,7 +190,7 @@ class PlacesDataRetriever(object):
     def get_places_api_data(self):
         print("Looking for places ...")
         if self.extract_from_file:
-            places_df = pd.read_csv("places.csv")
+            places_df = pd.read_csv("test/places.csv")
             places_df["opening_time"].fillna(self.default_opening_time, inplace=True)
             places_df["closing_time"].fillna(self.default_closing_time, inplace=True)
 
@@ -264,12 +257,12 @@ class PlacesDataRetriever(object):
     def retrieve_hotels(self):
         print("Searching for top hotels ...")
         if self.extract_from_file:
-            hotel_recommendations = pd.read_csv("hotel_data.csv")[
+            hotel_recommendations = pd.read_csv("test/hotel_data.csv")[
                 ["place_id", "name", "rating", "user_ratings_total", "address"]]
             hotel_recommendations["prominence_score"] = hotel_recommendations["rating"] * hotel_recommendations[
                 "user_ratings_total"]
             hotel_recommendations.sort_values(by=["prominence_score"], ascending=False, inplace=True)
-            hotel_recommendations.drop(columns=["prominence_score","place_id"], inplace=True)
+            hotel_recommendations.drop(columns=["prominence_score", "place_id"], inplace=True)
 
         else:
             desirable_hotels_dict = {}
@@ -313,7 +306,7 @@ class PlacesDataRetriever(object):
     def retrieve_distance_matrix(self):
         print("Computing distances and transit times ...")
         if self.extract_from_file:
-            distances_df = pd.read_csv("distances.csv")
+            distances_df = pd.read_csv("test/distances.csv")
             self.distance_matrix = distances_df.set_index(["place_id_x", "place_id_y"])["road_distance"].to_dict()
         else:
             # Haversine distances and conversion to minutes >
