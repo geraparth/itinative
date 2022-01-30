@@ -30,7 +30,7 @@ _Name your city_ and _No. of days_ and let itinative be your travel planner!
 
 While we get this to pypi, use the following: 
 ```
-pip install git+https://github.com/geraparth/itinative.git@v1.10
+pip install git+https://github.com/geraparth/itinative.git@v1.13
 ```
 
 ## Usage:
