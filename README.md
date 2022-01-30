@@ -49,7 +49,7 @@ to obtain your personal API key
     ```
 ## Demo
 
-- Check this jupyter-notebook
+- Check this [jupyter-notebook](https://github.com/geraparth/itinative/blob/main/examples/Demo.ipynb)
 - [Video](https://drive.google.com/file/d/1ipLp0wxH7c0ujVEsFsnYZe3syHVy1-c3/view?usp=sharing)
 
 ### Some common configurations
