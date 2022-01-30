@@ -2,7 +2,7 @@ from setuptools import setup
 from itinative import __version__, __author__, __doc__
 
 setup(
-    name='itinerary-planner',
+    name='itinative',
     version=__version__,
     packages=['itinative'],
     url='',
