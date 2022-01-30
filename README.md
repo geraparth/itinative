@@ -26,6 +26,13 @@ itinerary with several considerations:
 
 _Name your city_ and _No. of days_ and let itinative be your travel planner!
 
+## Installation
+
+While we get this to pypi, use the following: 
+```
+pip install git+https://github.com/geraparth/itinative.git@v1.10
+```
+
 ## Usage:
 1. Import packge and initialize it with an API key
     ```python
