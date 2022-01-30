@@ -13,6 +13,30 @@ class Agent(object):
         self.maxVisits_in_a_day = 7
         self.extract_from_file = False  # debugging tool
         self.api_key = api_key
+        self.time_format = """
+        Itinative accepts a time value in military format. Here are a few examples:
+        
+        - 08:00 AM = 800
+        - 12:00 PM = 1200
+        - 01:00 PM = 1300
+        - 09:00 PM = 2100
+        - 12:00 AM = 0 
+        """
+
+    def configure_opening_time(self, new_opening_time):
+        assert isinstance(new_opening_time,
+                          int), "Provide a time value in military format, check agent.time_format for details"
+        assert 2359 >= new_opening_time >= 0, "Time value in invalid domain (0, 2359)"
+        assert new_opening_time % 100 < 60, "Invalid time value!"
+        self.default_opening_time = 60 * (new_opening_time // 100) + new_opening_time % 100
+
+    def configure_closing_time(self, new_closing_time):
+        assert isinstance(new_closing_time,
+                          int), "Provide a time value in military format, check agent.time_format for details"
+        assert 2359 >= new_closing_time >= 0, "Time value in invalid domain (0, 2359)"
+        assert self.default_opening_time < new_closing_time, "Closing time must be after opening time, modify that first"
+        assert new_closing_time % 100 < 60, "Invalid time value!"
+        self.default_closing_time = 60 * (new_closing_time // 100) + new_closing_time % 100
 
     def generate(self):
         # Retrieve Data >>
