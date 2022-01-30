@@ -10,4 +10,5 @@ setup(
     author=itinative.__author__,
     author_email='mohitmhjn147@gmail.com',
     description=itinative.__doc__,
+    install_requires=['googlemaps', 'pulp', 'numpy','geopy','pandas','scikit-learn']
 )
