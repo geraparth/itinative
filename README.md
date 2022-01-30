@@ -12,6 +12,8 @@ This creeps in a lot of confusion and more often than not we tend to
 procrastinate on our planning and travel. You're imagining a lot of back and forth with
 google maps, Isn't it?
 
+![img](./static/decoration.png)
+
 Itinative is a python package built on top of google API's which intend to automate 
 trip planning with the least amount of information and create a recommendation of an 
 itinerary with several considerations: 
