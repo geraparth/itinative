@@ -10,7 +10,8 @@ try:
     from geopy.geocoders import Nominatim
     from sklearn.cluster import SpectralClustering
 except ModuleNotFoundError:
-    raise Exception("Missing dependencies!")
+    print("Missing dependencies!")
+    pass
 
 
 def haversine(lon1, lat1, lon2, lat2):

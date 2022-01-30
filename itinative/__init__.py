@@ -1,4 +1,4 @@
-__version__ = "1.10"
+__version__ = "1.13"
 __author__ = "Parth Gera, Mohit Mahajan, Abhinav Garg"
 __doc__ = "Recommend a daily-itinerary minimizing the time spent in travel and maximizing the prominence covered"
 

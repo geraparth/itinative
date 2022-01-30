@@ -4,7 +4,8 @@ try:
     import pandas as pd
     from pulp import *
 except ModuleNotFoundError:
-    raise Exception("Missing dependencies!")
+    print("Missing dependencies!")
+    pass
 
 
 class bestpriceColletingRoute(object):
