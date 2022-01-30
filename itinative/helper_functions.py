@@ -1,12 +1,16 @@
-import googlemaps
 import time
-import pandas as pd
-import numpy as np
-from geopy.geocoders import Nominatim
 from datetime import datetime
 from collections import defaultdict
-from sklearn.cluster import SpectralClustering
 from math import radians, cos, sin, asin, sqrt
+
+try:
+    import pandas as pd
+    import numpy as np
+    import googlemaps
+    from geopy.geocoders import Nominatim
+    from sklearn.cluster import SpectralClustering
+except ModuleNotFoundError:
+    raise Exception("Missing dependencies!")
 
 
 def haversine(lon1, lat1, lon2, lat2):

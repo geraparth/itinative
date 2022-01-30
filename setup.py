@@ -1,14 +1,14 @@
 from setuptools import setup
-import itinative
+from itinative import __version__, __author__, __doc__
 
 setup(
     name='itinerary-planner',
-    version=itinative.__version__,
+    version=__version__,
     packages=['itinative'],
     url='',
     license='MIT',
-    author=itinative.__author__,
+    author=__author__,
     author_email='mohitmhjn147@gmail.com',
-    description=itinative.__doc__,
-    install_requires=['googlemaps', 'pulp', 'numpy','geopy','pandas','scikit-learn']
+    description=__doc__,
+    install_requires=['googlemaps', 'pulp', 'numpy', 'geopy', 'pandas', 'scikit-learn']
 )

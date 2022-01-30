@@ -1,6 +1,10 @@
-import pandas as pd
-from pulp import *
 import datetime
+
+try:
+    import pandas as pd
+    from pulp import *
+except ModuleNotFoundError:
+    raise Exception("Missing dependencies!")
 
 
 class bestpriceColletingRoute(object):
