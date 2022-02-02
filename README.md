@@ -39,7 +39,7 @@ pip install git+https://github.com/geraparth/itinative.git@v1.13
 1. Import packge and initialize it with an API key
     ```python
    import itinative
-   agent = itinative.initialize(api_key= "YOUR API KEY" )
+   agent = itinative.initialize(api_key="YOUR-API-KEY")
     ```
     Read the instructions 
 [here](https://developers.google.com/maps/documentation/javascript/get-api-key#creating-api-keys) 
@@ -71,8 +71,8 @@ doesn't know when you start/want to start your trip and call it a day. Itinative
    However, you can configure it (if needed) using the utility methods:
    ```python
     agent = itinative.initialize()
-    agent.configure_opening_time( <new opening time> )
-    agent.configure_closing_time( <new closing time> )
+    agent.configure_opening_time(<new-opening-time>)
+    agent.configure_closing_time(<new-closing-time>)
    ```
    Note: The package follows an easy [military time format](https://militaryconnection.com/military-time/). 
    If not familiar, get available examples using: `print(agent.time_format)`
@@ -81,7 +81,7 @@ the "time usually spent" values from google. So we've assumed that the user plan
 a place. This can be configured as shown below:
    ```python
    agent = itinative.initialize()
-   agent.waiting_time = <new waiting time in minutes>
+   agent.waiting_time = <new-waiting-time-in-minutes>
    ```
 
 ## Citations
